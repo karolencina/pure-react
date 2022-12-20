@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 
 function MyThing() {
     return (
@@ -23,6 +24,27 @@ function Greeting() {
     )
 }
 
+function Data() {
+    return (
+        <>
+        <td>Name</td>
+        <td>Location</td>
+        <td>Age</td>
+        </>
+    )
+}
+
+function Table() {
+    return (
+        <table>
+            <tbody>
+            <tr>
+                <Data/>
+            </tr>
+            </tbody>
+        </table>
+    )
+}
 
 
-ReactDOM.render(<Greeting/>, document.querySelector('#root'))
+ReactDOM.render(<Table/>, document.querySelector('#root'))
