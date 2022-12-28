@@ -5,6 +5,7 @@ import './index.css'
 function Tweet() {
     return <div className="tweet">
         <Avatar></Avatar>
+        <Author></Author>
         <Message></Message>
     </div>
 }
@@ -17,6 +18,15 @@ function Avatar() {
         alt="avatar"
     />
 )
+}
+
+function Author() {
+    return (
+        <span className="author">
+            <span className="name">Karo Lencina</span>
+            <span className="handle">@karolencina</span>
+        </span>
+    )
 }
 
 function Message() {
