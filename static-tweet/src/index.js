@@ -46,7 +46,7 @@ const Time = () => <span className="time">3h ago</span>
 const Device = () => <span className="device">Twitter for iPhone</span>
 const ReplyBtn = () => <i className="fa fa-reply reply-button" />
 const RetweetBtn = () => <i className="fa fa-retweet retweet-button"/>
-const LikeBtn = () => <i className="fa fa-hear like-button" />
+const LikeBtn = () => <i className="fa fa-heart like-button" />
 const MoreOptionsBtn = () => <i className="fa fa-ellipsis-h more-options-button" />
 
 ReactDOM.render(<Tweet/>, document.querySelector("#root"))

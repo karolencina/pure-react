@@ -46,4 +46,16 @@
     grid-column: 1 / -1;
 }
 
+.buttons {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    margin-left: 2px;
+    font-size: 1.4em;
+    color: grey;
+}
+
+.buttons i {
+    width: 80px;
+}
+
 
