@@ -7,6 +7,9 @@ function Tweet() {
         <Avatar></Avatar>
         <Author></Author>
         <Message></Message>
+        <div className="tweet-info">
+            <Time></Time> • <Device></Device>
+        </div>
         <div className="buttons">
             <ReplyBtn></ReplyBtn>
             <RetweetBtn></RetweetBtn>
@@ -40,6 +43,7 @@ function Message() {
 }
 
 const Time = () => <span className="time">3h ago</span>
+const Device = () => <span className="device">Twitter for iPhone</span>
 const ReplyBtn = () => <i className="fa fa-reply reply-button" />
 const RetweetBtn = () => <i className="fa fa-retweet retweet-button"/>
 const LikeBtn = () => <i className="fa fa-hear like-button" />
