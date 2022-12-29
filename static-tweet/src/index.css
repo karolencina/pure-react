@@ -24,7 +24,6 @@
 .author {
     display: grid;
     grid-template-rows: auto auto;
-    grid-gap: ;
 }
 
 .name {

@@ -7,6 +7,12 @@ function Tweet() {
         <Avatar></Avatar>
         <Author></Author>
         <Message></Message>
+        <div className="buttons">
+            <ReplyBtn></ReplyBtn>
+            <RetweetBtn></RetweetBtn>
+            <LikeBtn></LikeBtn>
+            <MoreOptionsBtn></MoreOptionsBtn>
+        </div>
     </div>
 }
 
@@ -32,5 +38,11 @@ function Author() {
 function Message() {
     return <div className="message">This is the content of a Tweet message.</div>
 }
+
+const Time = () => <span className="time">3h ago</span>
+const ReplyBtn = () => <i className="fa fa-reply reply-button" />
+const RetweetBtn = () => <i className="fa fa-retweet retweet-button"/>
+const LikeBtn = () => <i className="fa fa-hear like-button" />
+const MoreOptionsBtn = () => <i className="fa fa-ellipsis-h more-options-button" />
 
 ReactDOM.render(<Tweet/>, document.querySelector("#root"))
