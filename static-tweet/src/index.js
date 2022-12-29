@@ -4,17 +4,17 @@ import './index.css'
 
 function Tweet() {
     return <div className="tweet">
-        <Avatar></Avatar>
-        <Author></Author>
-        <Message></Message>
+        <Avatar/>
+        <Author/>
+        <Message/>
         <div className="tweet-info">
-            <Time></Time> • <Device></Device>
+            <Time/> • <Device/>
         </div>
         <div className="buttons">
-            <ReplyBtn></ReplyBtn>
-            <RetweetBtn></RetweetBtn>
-            <LikeBtn></LikeBtn>
-            <MoreOptionsBtn></MoreOptionsBtn>
+            <ReplyBtn/>
+            <RetweetBtn/>
+            <LikeBtn/>
+            <MoreOptionsBtn/>
         </div>
     </div>
 }
