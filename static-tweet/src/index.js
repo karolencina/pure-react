@@ -5,7 +5,7 @@ import './index.css'
 function Tweet() {
     return <div className="tweet">
         <Avatar/>
-        <Author/>
+        <Author name="Karo Lencina" handle="karolencina"/>
         <Message/>
         <div className="tweet-info">
             <Time/> • <Device/>
@@ -29,11 +29,11 @@ function Avatar() {
 )
 }
 
-function Author() {
+function Author(props) {
     return (
         <span className="author">
-            <span className="name">Karo Lencina</span>
-            <span className="handle">@karolencina</span>
+            <span className="name">{props.name}</span>
+            <span className="handle">@{props.handle}</span>
         </span>
     )
 }
