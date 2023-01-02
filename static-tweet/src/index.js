@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import moment from 'moment'
 import './index.css'
 
 
@@ -45,7 +46,11 @@ function Message({text}) {
     return <div className="message">{text}</div>
 }
 
-const Time = ({time}) => <span className="time">{time}</span>
+const Time = ({time}) => {
+    const timeString = moment(time).fromNow()
+    return <span className="time">{timeString}</span>
+}
+
 const Device = ({}) => <span className="device">Twitter for iPhone</span>
 const ReplyBtn = () => <i className="fa fa-reply reply-button" />
 const RetweetBtn = () => <i className="fa fa-retweet retweet-button"/>
