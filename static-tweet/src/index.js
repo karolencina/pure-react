@@ -11,12 +11,12 @@ function Tweet({tweet}) {
         <Author name={tweet.author.name} handle={tweet.author.handle}/>
         <Message text={tweet.message}/>
         <div className="tweet-info">
-            <Time time={tweet.timestamp}/> • <Device/>
+            <Time time={tweet.timestamp}/> • <Device device={tweet.platform}/>
         </div>
         <div className="buttons">
             <ReplyBtn/>
-            <RetweetBtn/>
-            <LikeBtn/>
+            <RetweetBtn count={tweet.retweets}/>
+            <LikeBtn count={tweet.likes}/>
             <MoreOptionsBtn/>
         </div>
     </div>
@@ -51,11 +51,39 @@ const Time = ({time}) => {
     return <span className="time">{timeString}</span>
 }
 
-const Device = ({}) => <span className="device">Twitter for iPhone</span>
+const Device = ({device}) => <span className="device">Twitter for {device}</span>
+
 const ReplyBtn = () => <i className="fa fa-reply reply-button" />
-const RetweetBtn = () => <i className="fa fa-retweet retweet-button"/>
-const LikeBtn = () => <i className="fa fa-heart like-button" />
+
+const RetweetBtn = ({count}) => {
+    return (
+            <span className="retweet-btn">
+                {getRetweetCount(count)}
+                <i className="fa fa-retweet"/>
+            </span>
+    )
+}
+
+const LikeBtn = ({count}) => {
+    return (
+        <span className="like-btn">
+            {count > 0 && <span className="like-count">{count}</span>}
+            <i className="fa fa-heart like-button" />
+        </span>
+    )
+}
+
 const MoreOptionsBtn = () => <i className="fa fa-ellipsis-h more-options-button" />
+
+// Logic
+
+function getRetweetCount(count) {
+    if (count > 0) {
+        return <span className="retweet-count">{count}</span>
+    } else {
+        return null
+    }
+}
 
 const testTweet = {
     message: 'Something about cats.',
@@ -65,8 +93,9 @@ const testTweet = {
         name: 'Cat Person',
     },
     likes: 2,
-    retweets: 0,
+    retweets: 3,
     timestamp: '2022-12-31 18:43:21',
+    platform: 'iPhone'
 }
 
 ReactDOM.render(<Tweet tweet={testTweet}/>, document.querySelector("#root"))
