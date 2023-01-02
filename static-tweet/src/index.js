@@ -2,13 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
-function Tweet() {
+
+// Add the { tweet } prop destructured
+function Tweet({tweet}) {
     return <div className="tweet">
-        <Avatar/>
-        <Author name="Karo Lencina" handle="karolencina"/>
-        <Message/>
+        <Avatar hash={tweet.gravatar}/>
+        <Author name={tweet.author.name} handle={tweet.author.handle}/>
+        <Message text={tweet.message}/>
         <div className="tweet-info">
-            <Time/> • <Device/>
+            <Time time={tweet.timestamp}/> • <Device/>
         </div>
         <div className="buttons">
             <ReplyBtn/>
@@ -19,34 +21,47 @@ function Tweet() {
     </div>
 }
 
-function Avatar() {
+function Avatar({hash}) {
+    const url = `https://www.gravatar.com/avatar/${hash}`
     return(
     <img
-        src="https://www.gravatar.com/avatar/f82bdf2f2ddf1e2f0998671c24991435"
+        src={url}
         className="avatar"
         alt="avatar"
     />
 )
 }
 
-function Author(props) {
+function Author({name, handle}) {
     return (
         <span className="author">
-            <span className="name">{props.name}</span>
-            <span className="handle">@{props.handle}</span>
+            <span className="name">{name}</span>
+            <span className="handle">@{handle}</span>
         </span>
     )
 }
 
-function Message() {
-    return <div className="message">This is the content of a Tweet message.</div>
+function Message({text}) {
+    return <div className="message">{text}</div>
 }
 
-const Time = () => <span className="time">3h ago</span>
-const Device = () => <span className="device">Twitter for iPhone</span>
+const Time = ({time}) => <span className="time">{time}</span>
+const Device = ({}) => <span className="device">Twitter for iPhone</span>
 const ReplyBtn = () => <i className="fa fa-reply reply-button" />
 const RetweetBtn = () => <i className="fa fa-retweet retweet-button"/>
 const LikeBtn = () => <i className="fa fa-heart like-button" />
 const MoreOptionsBtn = () => <i className="fa fa-ellipsis-h more-options-button" />
 
-ReactDOM.render(<Tweet/>, document.querySelector("#root"))
+const testTweet = {
+    message: 'Something about cats.',
+    gravatar: 'f82bdf2f2ddf1e2f0998671c24991435',
+    author: {
+        handle: 'catperson',
+        name: 'Cat Person',
+    },
+    likes: 2,
+    retweets: 0,
+    timestamp: '2022-12-31 18:43:21',
+}
+
+ReactDOM.render(<Tweet tweet={testTweet}/>, document.querySelector("#root"))
