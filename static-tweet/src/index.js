@@ -58,7 +58,7 @@ const ReplyBtn = () => <i className="fa fa-reply reply-button" />
 const RetweetBtn = ({count}) => {
     return (
             <span className="retweet-btn">
-                {getRetweetCount(count)}
+                <Count count={count}/>
                 <i className="fa fa-retweet"/>
             </span>
     )
@@ -77,7 +77,7 @@ const MoreOptionsBtn = () => <i className="fa fa-ellipsis-h more-options-button"
 
 // Logic
 
-function getRetweetCount(count) {
+const Count = ({count}) => {
     if (count > 0) {
         return <span className="retweet-count">{count}</span>
     } else {
