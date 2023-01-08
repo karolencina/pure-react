@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import moment from 'moment'
+import PropTypes from 'prop-types';
 import './index.css'
 
 
@@ -19,7 +20,7 @@ function Tweet({tweet}) {
             <LikeBtn count={tweet.likes}/>
             <MoreOptionsBtn/>
         </div>
-        <Comment author='A Commenter' message='Some message text.' likes='23'/>
+        <Comment author="A commenter" message='Some message text.' likes={5}/>
     </div>
 }
 
@@ -31,6 +32,11 @@ function Comment({author, message, likes}) {
             <div className="likes">{likes > 0 ? likes : 'No'}</div>
         </div>
     )
+}
+Comment.propTypes = {
+    author: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    likes: PropTypes.number
 }
 
 function Avatar({hash}) {
