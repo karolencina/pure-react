@@ -19,7 +19,18 @@ function Tweet({tweet}) {
             <LikeBtn count={tweet.likes}/>
             <MoreOptionsBtn/>
         </div>
+        <Comment author='A Commenter' message='Some message text.' likes='23'/>
     </div>
+}
+
+function Comment({author, message, likes}) {
+    return (
+        <div>
+            <div className="author">{author}</div>
+            <div className="message">{message}</div>
+            <div className="likes">{likes > 0 ? likes : 'No'}</div>
+        </div>
+    )
 }
 
 function Avatar({hash}) {
