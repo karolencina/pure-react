@@ -80,6 +80,9 @@ const RetweetBtn = ({count}) => {
             </span>
     )
 }
+RetweetBtn.propTypes = {
+    count: PropTypes.number,
+}
 
 const LikeBtn = ({count}) => {
     return (
