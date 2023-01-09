@@ -89,6 +89,9 @@ const LikeBtn = ({count}) => {
         </span>
     )
 }
+LikeBtn.propTypes = {
+    count: PropTypes.number,
+}
 
 const MoreOptionsBtn = () => <i className="fa fa-ellipsis-h more-options-button" />
 
