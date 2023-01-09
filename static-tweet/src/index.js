@@ -62,6 +62,9 @@ function Author({name, handle}) {
 function Message({text}) {
     return <div className="message">{text}</div>
 }
+Message.propTypes = {
+    text: PropTypes.string.isRequired
+}
 
 const Time = ({time}) => {
     const timeString = moment(time).fromNow()
